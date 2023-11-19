@@ -2,17 +2,18 @@
 const express = require("express")
 const accountRoutes = express.Router();
 const fs = require('fs');
-const dataPath = fs.readFile(process.cwd() + '/jsonDB/useraccount.json', 'utf8');
-// const dataPath = './jsonDB/useraccount.json'; // path to our JSON file
+// const dataPath = fs.readFile(process.cwd() + '/jsonDB/useraccount.json', 'utf8');
+const dataPath = './jsonDB/useraccount.json'; // path to our JSON file
 
 const saveAccountData = (data) => {
     const stringifyData = JSON.stringify(data)
     fs.writeFileSync(dataPath, stringifyData)
 };
 
-const getAccountData = () => {
-    const jsonData = fs.readFileSync(dataPath)
-    return JSON.parse(jsonData)
+const getAccountData = async () => {
+    // const jsonData = fs.readFileSync(dataPath)
+    const file = await fs.readFile(process.cwd() + '/jsonDB/useraccount.json', 'utf8');
+    return JSON.parse(file)
 };
 
 accountRoutes.post('/account/addaccount', (req, res) => {
