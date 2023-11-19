@@ -12,7 +12,7 @@ const saveAccountData = (data) => {
 
 const getAccountData = async () => {
     // const jsonData = fs.readFileSync(dataPath)
-    const file = await fs.readFile(process.cwd() + '/jsonDB/useraccount.json', 'utf8');
+    const file = await fs.readFile('/jsonDB/useraccount.json');
     return JSON.parse(file)
 };
 
