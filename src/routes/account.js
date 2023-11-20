@@ -10,7 +10,7 @@ const saveAccountData = (data) => {
 };
 
 const getAccountData = () => {
-    const jsonData = fs.readFileSync('./jsonDB/useraccount.json')
+    const jsonData = fs.readFileSync(process.cwd() + './jsonDB/useraccount.json')
     console.log(jsonData, " <<json data")
     return JSON.parse(jsonData);
 };
