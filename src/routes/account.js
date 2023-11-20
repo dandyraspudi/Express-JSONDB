@@ -2,8 +2,7 @@
 const express = require("express")
 const accountRoutes = express.Router();
 const fs = require('fs');
-// const dataPath = fs.readFile(process.cwd() + '/jsonDB/useraccount.json', 'utf8');
-const dataPath = './useraccount.json'; // path to our JSON file
+const dataPath = './jsonDB/useraccount.json'; // path to our JSON file
 
 const saveAccountData = (data) => {
     const stringifyData = JSON.stringify(data)
@@ -11,8 +10,8 @@ const saveAccountData = (data) => {
 };
 
 const getAccountData = () => {
-    const jsonData = fs.readFileSync(dataPath)
-    // const file = await fs.readFile('/jsonDB/useraccount.json');
+    const jsonData = fs.readFileSync('./jsonDB/useraccount.json')
+    console.log(jsonData, " <<json data")
     return JSON.parse(jsonData);
 };
 
