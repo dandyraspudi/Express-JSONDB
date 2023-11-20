@@ -5,6 +5,34 @@ const fs = require('fs');
 // const dataPath = fs.readFile(process.cwd() + '/jsonDB/useraccount.json', 'utf8');
 const dataPath = './jsonDB/useraccount.json'; // path to our JSON file
 
+let data = {
+    "1465": {
+      "username": "madfinger11",
+      "email": "maddy@gmail.com",
+      "password": "yddam5342"
+    },
+    "2646": {
+      "username": "yemiakin",
+      "email": "emiakiy@gmail.com",
+      "password": "iy@g65"
+    },
+    "3253": {
+      "username": "ikechifortune",
+      "email": "echifo@gmail.com",
+      "password": "ifo#mf23"
+    },
+    "283326": {
+      "username": "dandy123",
+      "email": "dandy@gmail.com",
+      "password": "dandy123"
+    },
+    "369047": {
+      "username": "dandy",
+      "email": "dandy@gmail.com",
+      "password": "dandy123"
+    }
+}
+
 const saveAccountData = (data) => {
     const stringifyData = JSON.stringify(data)
     fs.writeFileSync(dataPath, stringifyData)
@@ -29,9 +57,9 @@ accountRoutes.post('/account/addaccount', (req, res) => {
 
 // Read - get all accounts from the json file
 accountRoutes.get('/account/list', (req, res) => {
-    const accounts = getAccountData()
-    console.log(accounts, " <<account");
-    res.send(accounts)
+    // const accounts = getAccountData()
+    // res.send(accounts)
+    res.send(data)
 });
 
 // Update - using Put method
