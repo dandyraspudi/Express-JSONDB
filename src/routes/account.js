@@ -10,7 +10,7 @@ const saveAccountData = (data) => {
     fs.writeFileSync(dataPath, stringifyData)
 };
 
-const getAccountData = async () => {
+const getAccountData = () => {
     const jsonData = fs.readFileSync(dataPath)
     // const file = await fs.readFile('/jsonDB/useraccount.json');
     return JSON.parse(jsonData);
