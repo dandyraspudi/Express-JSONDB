@@ -28,6 +28,7 @@ accountRoutes.post('/account/addaccount', (req, res) => {
 
 // Read - get all accounts from the json file
 accountRoutes.get('/account/list', (req, res) => {
+    console.log(process.cwd(), " <<process cwd")
     const accounts = getAccountData()
     res.send(accounts)
 });
