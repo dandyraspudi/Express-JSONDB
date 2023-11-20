@@ -11,9 +11,9 @@ const saveAccountData = (data) => {
 };
 
 const getAccountData = async () => {
-    // const jsonData = fs.readFileSync(dataPath)
-    const file = await fs.readFile('/jsonDB/useraccount.json');
-    return JSON.parse(file)
+    const jsonData = fs.readFileSync(dataPath)
+    // const file = await fs.readFile('/jsonDB/useraccount.json');
+    return JSON.parse(jsonData);    
 };
 
 accountRoutes.post('/account/addaccount', (req, res) => {
@@ -23,7 +23,6 @@ accountRoutes.post('/account/addaccount', (req, res) => {
  
     existAccounts[newAccountId] = req.body
    
-    console.log(existAccounts);
     saveAccountData(existAccounts);
     res.send({success: true, msg: 'account added successfully'})
 });
