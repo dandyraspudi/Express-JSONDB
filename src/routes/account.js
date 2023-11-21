@@ -1,6 +1,7 @@
 // account.js
 const express = require("express")
 const accountRoutes = express.Router();
+const path = require('path');
 const fs = require('fs');
 const dataPath = './jsonDB/useraccount.json'; // path to our JSON file
 
